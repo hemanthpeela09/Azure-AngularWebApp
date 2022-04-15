@@ -26,7 +26,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-          
+
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
 
@@ -48,7 +48,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: node-app
-        
+
       - name: unzip artifact for deployment
         run: unzip release.zip
 
@@ -59,4 +59,4 @@ jobs:
           app-name: 'azangularwebapp'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0054359A9C474C7D8D9CC3B8405749B2 }}
-          package: .
+          package: ./dist/Azure-AngularWebApp
